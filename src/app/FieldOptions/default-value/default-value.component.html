@@ -1,0 +1,12 @@
+<ul class="m-5">
+    There are two ways to initialize the form with default values.
+    <ol>
+        <li>Default the model (preferred)</li>
+        <li>Use the defaultValue option on the field</li>
+    </ol>
+</ul>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="m-5">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+</form>
