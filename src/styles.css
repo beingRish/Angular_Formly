@@ -75,3 +75,10 @@ nav a:hover {
 nav a.active {
   color: #039be5;
 }
+
+code{
+  color: black;
+  background-color: #eee;
+  border-radius: 4px;
+  padding: 5px;
+}

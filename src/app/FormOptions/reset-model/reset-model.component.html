@@ -1,0 +1,19 @@
+<ul class="m-5">
+    <h3>Reset and Update Initial Values</h3>
+    <ol>
+        <li>Fill out some fields</li>
+        <li>Click "Reset"</li>  
+        <li>Fill out fields again</li>   
+        <li>Click "Update Initial Values"</li>
+        <li>Click "Reset"</li>
+        <li>Change some fields</li>
+        <li>Click "Reset"</li>
+    </ol>
+</ul>
+
+<form [formGroup]="form" (submit)="submit()" class="m-5">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    <button type="submit" class="btn btn-primary submit-button">Submit</button>
+    <button type="button" class="btn btn-default" (click)="options.resetModel ? options.resetModel() : resetModel()">Reset</button>
+    <button type="button" class="btn btn-default" (click)="options.updateInitialValue ? options.updateInitialValue() : updateInitialValue()">Update Intial Values</button>
+</form>

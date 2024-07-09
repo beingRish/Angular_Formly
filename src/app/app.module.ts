@@ -10,6 +10,8 @@ import { DefaultValueComponent } from './FieldOptions/default-value/default-valu
 import { HomeComponent } from './home/home.component';
 import { HideFieldsComponent } from './FieldOptions/hide-fields/hide-fields.component';
 import { ModelOptionsComponent } from './FieldOptions/model-options/model-options.component';
+import { ResetModelComponent } from './FormOptions/reset-model/reset-model.component';
+import { FormStateComponent } from './FormOptions/form-state/form-state.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ModelOptionsComponent } from './FieldOptions/model-options/model-option
     DefaultValueComponent,
     HomeComponent,
     HideFieldsComponent,
-    ModelOptionsComponent
+    ModelOptionsComponent,
+    ResetModelComponent,
+    FormStateComponent
   ],
   imports: [
     BrowserModule,
