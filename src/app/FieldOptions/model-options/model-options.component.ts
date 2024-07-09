@@ -14,11 +14,46 @@ export class ModelOptionsComponent {
 
   options: FormlyFormOptions = {}
 
-  fields : FormlyFieldConfig[] = [
-    
+  fields: FormlyFieldConfig[] = [
+    {
+      key: 'text',
+      type: 'input',
+      modelOptions: {
+        debounce: {
+          default: 2000
+        },
+      },
+      props: {
+        label: 'Debounce'
+      }
+    },
+    {
+      key: 'updateOnBlur',
+      type: 'input',
+      modelOptions: {
+        updateOn: 'blur',
+      },
+      props: {
+        label: '`updateOn` on Blur',
+        required: true,
+      },
+    },
+    {
+      key: 'updateOnSubmit',
+      type: 'input',
+      modelOptions: {
+        updateOn: 'submit',
+      },
+      props: {
+        label: '`updateOn` on Submit',
+        required: true,
+      },
+    },
   ]
 
-  submit(){
-    alert(JSON.stringify(this.model))
+  submit() {
+    if (this.form.valid) {
+      alert(JSON.stringify(this.model));
+    }
   }
 }
