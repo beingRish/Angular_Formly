@@ -1,0 +1,10 @@
+<h6 class="m-5">
+    With angular-formly-bootstrap-templates, you can specify <span>rows</span> for the <span>textarea</span> type. You
+    can also specify cols but that doesn't matter because the <span>.form-control</span> class will make the textarea
+    have a width of 100% anyway.
+</h6>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="m-3">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    <button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Submit</button>
+</form>

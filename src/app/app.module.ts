@@ -22,6 +22,8 @@ import { MatchingTwoFieldsComponent } from './ValidationOptions/matching-two-fie
 import { ForceShowingErrorStateComponent } from './ValidationOptions/force-showing-error-state/force-showing-error-state.component';
 import { ToggleRequiredFieldComponent } from './ValidationOptions/toggle-required-field/toggle-required-field.component';
 import { DisableSubmitButtonComponent } from './ValidationOptions/disable-submit-button/disable-submit-button.component';
+import { TableRowsComponent } from './BootstrapFormly/table-rows/table-rows.component';
+import { SelectComponent } from './BootstrapFormly/select/select.component';
 
 
 export function IpValidator(control: AbstractControl): any {
@@ -86,6 +88,8 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     ForceShowingErrorStateComponent,
     ToggleRequiredFieldComponent,
     DisableSubmitButtonComponent,
+    TableRowsComponent,
+    SelectComponent,
   ],
   imports: [
     BrowserModule,

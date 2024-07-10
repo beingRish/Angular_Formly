@@ -16,6 +16,8 @@ import { MatchingTwoFieldsComponent } from './ValidationOptions/matching-two-fie
 import { ForceShowingErrorStateComponent } from './ValidationOptions/force-showing-error-state/force-showing-error-state.component';
 import { ToggleRequiredFieldComponent } from './ValidationOptions/toggle-required-field/toggle-required-field.component';
 import { DisableSubmitButtonComponent } from './ValidationOptions/disable-submit-button/disable-submit-button.component';
+import { TableRowsComponent } from './BootstrapFormly/table-rows/table-rows.component';
+import { SelectComponent } from './BootstrapFormly/select/select.component';
 
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
@@ -33,7 +35,10 @@ const routes: Routes = [
   {path: 'matchingTwoFields', component: MatchingTwoFieldsComponent},
   {path: 'forceShowingErrorState', component: ForceShowingErrorStateComponent},
   {path: 'toggleRequiredField', component: ToggleRequiredFieldComponent},
-  {path: 'disableSubmitButton', component: DisableSubmitButtonComponent}
+  {path: 'disableSubmitButton', component: DisableSubmitButtonComponent},
+  {path: 'tableRows', component: TableRowsComponent},
+  {path: 'select', component: SelectComponent},
+  
 ];
 
 @NgModule({

@@ -1,0 +1,9 @@
+<h6 class="m-5">
+    Here are all of the options you have available to you with the <span>select</span> type from
+    <span>&#64;ngx-formly/bootstrap</span>
+</h6>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="m-5">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    <button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Submit</button>
+</form>
