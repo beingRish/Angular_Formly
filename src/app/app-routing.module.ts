@@ -18,6 +18,7 @@ import { ToggleRequiredFieldComponent } from './ValidationOptions/toggle-require
 import { DisableSubmitButtonComponent } from './ValidationOptions/disable-submit-button/disable-submit-button.component';
 import { TableRowsComponent } from './BootstrapFormly/table-rows/table-rows.component';
 import { SelectComponent } from './BootstrapFormly/select/select.component';
+import { AdvancedLayoutComponent } from './BootstrapSpecific/advanced-layout/advanced-layout.component';
 
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: 'disableSubmitButton', component: DisableSubmitButtonComponent},
   {path: 'tableRows', component: TableRowsComponent},
   {path: 'select', component: SelectComponent},
+  {path: 'advancedLayout', component: AdvancedLayoutComponent},
   
 ];
 

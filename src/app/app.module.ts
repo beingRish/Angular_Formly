@@ -24,6 +24,7 @@ import { ToggleRequiredFieldComponent } from './ValidationOptions/toggle-require
 import { DisableSubmitButtonComponent } from './ValidationOptions/disable-submit-button/disable-submit-button.component';
 import { TableRowsComponent } from './BootstrapFormly/table-rows/table-rows.component';
 import { SelectComponent } from './BootstrapFormly/select/select.component';
+import { AdvancedLayoutComponent } from './BootstrapSpecific/advanced-layout/advanced-layout.component';
 
 
 export function IpValidator(control: AbstractControl): any {
@@ -90,6 +91,7 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     DisableSubmitButtonComponent,
     TableRowsComponent,
     SelectComponent,
+    AdvancedLayoutComponent,
   ],
   imports: [
     BrowserModule,
