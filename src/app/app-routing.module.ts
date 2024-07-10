@@ -6,6 +6,10 @@ import { HideFieldsComponent } from './FieldOptions/hide-fields/hide-fields.comp
 import { ModelOptionsComponent } from './FieldOptions/model-options/model-options.component';
 import { ResetModelComponent } from './FormOptions/reset-model/reset-model.component';
 import { FormStateComponent } from './FormOptions/form-state/form-state.component';
+import { BuiltInValidationsComponent } from './ValidationOptions/built-in-validations/built-in-validations.component';
+import { CustomValidationsComponent } from './ValidationOptions/custom-validations/custom-validations.component';
+import { CustomValidationParametersComponent } from './ValidationOptions/custom-validation-parameters/custom-validation-parameters.component';
+import { ValidationMessageComponent } from './ValidationOptions/validation-message/validation-message.component';
 
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
@@ -14,7 +18,10 @@ const routes: Routes = [
   {path: 'modelOptions', component: ModelOptionsComponent},
   {path: 'resetModel', component: ResetModelComponent},
   {path: 'formState', component: FormStateComponent},
-
+  {path: 'builtInValidations', component: BuiltInValidationsComponent},
+  {path: 'customValidations', component: CustomValidationsComponent},
+  {path: 'customValidationParameters', component: CustomValidationParametersComponent},
+  {path: 'validationMessage', component: ValidationMessageComponent}
 ];
 
 @NgModule({
