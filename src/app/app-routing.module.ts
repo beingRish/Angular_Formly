@@ -22,6 +22,7 @@ import { AdvancedLayoutComponent } from './BootstrapSpecific/advanced-layout/adv
 import { BootstrapHorizontalComponent } from './BootstrapSpecific/bootstrap-horizontal/bootstrap-horizontal.component';
 import { InputAddOnsComponent } from './BootstrapSpecific/input-add-ons/input-add-ons.component';
 import { I18nNgxTranslateComponent } from './Advanced/i18n-ngx-translate/i18n-ngx-translate.component';
+import { JsonSchemaComponent } from './Advanced/json-schema/json-schema.component';
 
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
@@ -45,7 +46,8 @@ const routes: Routes = [
   {path: 'advancedLayout', component: AdvancedLayoutComponent},
   {path: 'bootstrapHorizontal', component: BootstrapHorizontalComponent},
   {path: 'inputAddOns', component: InputAddOnsComponent},
-  {path: 'i18nNgxTranslate', component: I18nNgxTranslateComponent}
+  {path: 'i18nNgxTranslate', component: I18nNgxTranslateComponent},
+  {path: 'jsonSchema', component: JsonSchemaComponent}
 ];
 
 @NgModule({

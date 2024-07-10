@@ -29,10 +29,10 @@ import { BootstrapHorizontalComponent } from './BootstrapSpecific/bootstrap-hori
 import { FormlyHorizontalWrapper } from './BootstrapSpecific/horizontal-wrapper/horizontal-wrapper';
 import { InputAddOnsComponent } from './BootstrapSpecific/input-add-ons/input-add-ons.component';
 import { I18nNgxTranslateComponent } from './Advanced/i18n-ngx-translate/i18n-ngx-translate.component';
-import { I18nNgxTranslateAlternativeApproachComponent } from './Advanced/i18n-ngx-translate-alternative-approach/i18n-ngx-translate-alternative-approach.component'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { JsonSchemaComponent } from './Advanced/json-schema/json-schema.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -121,7 +121,7 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     FormlyHorizontalWrapper,
     InputAddOnsComponent,
     I18nNgxTranslateComponent,
-    I18nNgxTranslateAlternativeApproachComponent,
+    JsonSchemaComponent,
   ],
   imports: [
     BrowserModule,
