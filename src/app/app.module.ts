@@ -70,12 +70,12 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
         { name: 'date-future', validation: dateFutureValidator, options: { days: 2 } }
       ],
       validationMessages: [
-        { name: 'ip', message: IpValidatorMessage },
+        {name: 'ip', message: IpValidatorMessage },
         {name: 'required',message: 'This field is required' },
         {name: 'minLength', message: minLengthValidationMessage },
         {name: 'maxLength', message: maxLengthValidationMessage },
         {name: 'min', message: minValidationMessage },
-        {name: 'mix', message: maxValidationMessage },
+        {name: 'max', message: maxValidationMessage },
 
       ]
     }),
