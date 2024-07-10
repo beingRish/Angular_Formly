@@ -16,6 +16,10 @@ import { BuiltInValidationsComponent } from './ValidationOptions/built-in-valida
 import { CustomValidationsComponent, ipValidator } from './ValidationOptions/custom-validations/custom-validations.component';
 import { CustomValidationParametersComponent } from './ValidationOptions/custom-validation-parameters/custom-validation-parameters.component';
 import { ValidationMessageComponent } from './ValidationOptions/validation-message/validation-message.component';
+import { AsyncValidationOfUniqueValueComponent } from './ValidationOptions/async-validation-of-unique-value/async-validation-of-unique-value.component';
+import { AsyncValidationUpdateonComponent } from './ValidationOptions/async-validation-updateon/async-validation-updateon.component';
+import { MatchingTwoFieldsComponent } from './ValidationOptions/matching-two-fields/matching-two-fields.component';
+
 
 export function IpValidator(control: AbstractControl): any {
   return !control.value || /(\d{1,3}\.){3}\d{1,3}/.test(control.value) ? null : { ip: true };
@@ -26,6 +30,21 @@ export function dateFutureValidator(
   options = {},
   ): any {
   return { 'date-future': { message: `Validator options: ${JSON.stringify(options)}` } }
+}
+
+export function fieldMatchValidator(control: AbstractControl) {
+  const { password, passwordConfirm } = control.value;
+
+  // avoid displaying the message error when values are empty
+  if(!passwordConfirm || !password) {
+    return null;
+  }
+
+  if(passwordConfirm === password) {
+    return null;
+  }
+
+  return { fieldMatch: { message: 'Password Not Matching' } };
 }
 
 export function minLengthValidationMessage(error: any, field: FormlyFieldConfig){
@@ -57,7 +76,10 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     BuiltInValidationsComponent,
     CustomValidationsComponent,
     CustomValidationParametersComponent,
-    ValidationMessageComponent
+    ValidationMessageComponent,
+    AsyncValidationOfUniqueValueComponent,
+    AsyncValidationUpdateonComponent,
+    MatchingTwoFieldsComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +89,8 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     FormlyModule.forRoot({
       validators: [
         { name: 'ip', validation: ipValidator },
-        { name: 'date-future', validation: dateFutureValidator, options: { days: 2 } }
+        { name: 'date-future', validation: dateFutureValidator, options: { days: 2 } },
+        { name: 'fieldMatch', validation: fieldMatchValidator }
       ],
       validationMessages: [
         {name: 'ip', message: IpValidatorMessage },

@@ -10,6 +10,9 @@ import { BuiltInValidationsComponent } from './ValidationOptions/built-in-valida
 import { CustomValidationsComponent } from './ValidationOptions/custom-validations/custom-validations.component';
 import { CustomValidationParametersComponent } from './ValidationOptions/custom-validation-parameters/custom-validation-parameters.component';
 import { ValidationMessageComponent } from './ValidationOptions/validation-message/validation-message.component';
+import { AsyncValidationOfUniqueValueComponent } from './ValidationOptions/async-validation-of-unique-value/async-validation-of-unique-value.component';
+import { AsyncValidationUpdateonComponent } from './ValidationOptions/async-validation-updateon/async-validation-updateon.component';
+import { MatchingTwoFieldsComponent } from './ValidationOptions/matching-two-fields/matching-two-fields.component';
 
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
@@ -21,7 +24,10 @@ const routes: Routes = [
   {path: 'builtInValidations', component: BuiltInValidationsComponent},
   {path: 'customValidations', component: CustomValidationsComponent},
   {path: 'customValidationParameters', component: CustomValidationParametersComponent},
-  {path: 'validationMessage', component: ValidationMessageComponent}
+  {path: 'validationMessage', component: ValidationMessageComponent},
+  {path : 'asyncValidationOfUniqueValue', component: AsyncValidationOfUniqueValueComponent},
+  {path: 'asyncValidationuAndUpdateOn', component: AsyncValidationUpdateonComponent},
+  {path: 'matchingTwoFields', component: MatchingTwoFieldsComponent}
 ];
 
 @NgModule({
