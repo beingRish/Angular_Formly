@@ -27,6 +27,7 @@ import { SelectComponent } from './BootstrapFormly/select/select.component';
 import { AdvancedLayoutComponent } from './BootstrapSpecific/advanced-layout/advanced-layout.component';
 import { BootstrapHorizontalComponent } from './BootstrapSpecific/bootstrap-horizontal/bootstrap-horizontal.component';
 import { FormlyHorizontalWrapper } from './BootstrapSpecific/horizontal-wrapper/horizontal-wrapper';
+import { InputAddOnsComponent } from './BootstrapSpecific/input-add-ons/input-add-ons.component';
 
 
 export function IpValidator(control: AbstractControl): any {
@@ -96,6 +97,7 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     AdvancedLayoutComponent,
     BootstrapHorizontalComponent,
     FormlyHorizontalWrapper,
+    InputAddOnsComponent,
   ],
   imports: [
     BrowserModule,
