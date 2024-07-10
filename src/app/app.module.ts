@@ -19,6 +19,9 @@ import { ValidationMessageComponent } from './ValidationOptions/validation-messa
 import { AsyncValidationOfUniqueValueComponent } from './ValidationOptions/async-validation-of-unique-value/async-validation-of-unique-value.component';
 import { AsyncValidationUpdateonComponent } from './ValidationOptions/async-validation-updateon/async-validation-updateon.component';
 import { MatchingTwoFieldsComponent } from './ValidationOptions/matching-two-fields/matching-two-fields.component';
+import { ForceShowingErrorStateComponent } from './ValidationOptions/force-showing-error-state/force-showing-error-state.component';
+import { ToggleRequiredFieldComponent } from './ValidationOptions/toggle-required-field/toggle-required-field.component';
+import { DisableSubmitButtonComponent } from './ValidationOptions/disable-submit-button/disable-submit-button.component';
 
 
 export function IpValidator(control: AbstractControl): any {
@@ -80,6 +83,9 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     AsyncValidationOfUniqueValueComponent,
     AsyncValidationUpdateonComponent,
     MatchingTwoFieldsComponent,
+    ForceShowingErrorStateComponent,
+    ToggleRequiredFieldComponent,
+    DisableSubmitButtonComponent,
   ],
   imports: [
     BrowserModule,

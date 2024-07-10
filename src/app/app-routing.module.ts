@@ -13,6 +13,9 @@ import { ValidationMessageComponent } from './ValidationOptions/validation-messa
 import { AsyncValidationOfUniqueValueComponent } from './ValidationOptions/async-validation-of-unique-value/async-validation-of-unique-value.component';
 import { AsyncValidationUpdateonComponent } from './ValidationOptions/async-validation-updateon/async-validation-updateon.component';
 import { MatchingTwoFieldsComponent } from './ValidationOptions/matching-two-fields/matching-two-fields.component';
+import { ForceShowingErrorStateComponent } from './ValidationOptions/force-showing-error-state/force-showing-error-state.component';
+import { ToggleRequiredFieldComponent } from './ValidationOptions/toggle-required-field/toggle-required-field.component';
+import { DisableSubmitButtonComponent } from './ValidationOptions/disable-submit-button/disable-submit-button.component';
 
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
@@ -27,7 +30,10 @@ const routes: Routes = [
   {path: 'validationMessage', component: ValidationMessageComponent},
   {path : 'asyncValidationOfUniqueValue', component: AsyncValidationOfUniqueValueComponent},
   {path: 'asyncValidationuAndUpdateOn', component: AsyncValidationUpdateonComponent},
-  {path: 'matchingTwoFields', component: MatchingTwoFieldsComponent}
+  {path: 'matchingTwoFields', component: MatchingTwoFieldsComponent},
+  {path: 'forceShowingErrorState', component: ForceShowingErrorStateComponent},
+  {path: 'toggleRequiredField', component: ToggleRequiredFieldComponent},
+  {path: 'disableSubmitButton', component: DisableSubmitButtonComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,14 @@
+<div class="m-3 toggleRequiredField">
+   <h3> This is an example of how to toggle required of a field. It uses:</h3>
+    <ul class="mx-5">
+        <li><span>expressions</span>: to have formly add required to the input field</li>
+        <li><span>validation.show</span>: to show validation errors even when they the field has not been touched</li>
+        <li><span>validationMessages</span>: to add a globally available validation message</li>
+    </ul>
+</div>
+
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="m-5">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    <button type="submit" class="btn btn-primary submit-button">Submit</button>
+</form>
