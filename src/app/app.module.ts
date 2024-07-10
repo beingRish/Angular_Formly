@@ -25,6 +25,8 @@ import { DisableSubmitButtonComponent } from './ValidationOptions/disable-submit
 import { TableRowsComponent } from './BootstrapFormly/table-rows/table-rows.component';
 import { SelectComponent } from './BootstrapFormly/select/select.component';
 import { AdvancedLayoutComponent } from './BootstrapSpecific/advanced-layout/advanced-layout.component';
+import { BootstrapHorizontalComponent } from './BootstrapSpecific/bootstrap-horizontal/bootstrap-horizontal.component';
+import { FormlyHorizontalWrapper } from './BootstrapSpecific/horizontal-wrapper/horizontal-wrapper';
 
 
 export function IpValidator(control: AbstractControl): any {
@@ -92,6 +94,8 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     TableRowsComponent,
     SelectComponent,
     AdvancedLayoutComponent,
+    BootstrapHorizontalComponent,
+    FormlyHorizontalWrapper,
   ],
   imports: [
     BrowserModule,
@@ -99,6 +103,7 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     ReactiveFormsModule,
     FormlyBootstrapModule,
     FormlyModule.forRoot({
+      wrappers: [{ name: 'form-field-horizontal', component: FormlyHorizontalWrapper }],
       validators: [
         { name: 'ip', validation: ipValidator },
         { name: 'date-future', validation: dateFutureValidator, options: { days: 2 } },
