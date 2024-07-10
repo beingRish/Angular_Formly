@@ -1,0 +1,13 @@
+<div class="m-5">
+    <h6>This is an example of using ngx-formly with ngx-translate to internationalize your forms.</h6>
+
+    <h6>This example demonstrates dynamic i18n using <span>expressions</span>.</h6>
+
+    <h6>If you don't need a dynamic solution (language doesn't change after the app has started up), simply omit the
+        <span>expressions</span> in the example.</h6>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="m-5">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    <button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Submit</button>
+  </form>
