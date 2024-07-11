@@ -27,6 +27,7 @@ import { RepeatingSectionComponent } from './Advanced/repeating-section/repeatin
 import { RepeatingSectionWithLengthInputComponent } from './Advanced/repeating-section-with-length-input/repeating-section-with-length-input.component';
 import { MultiStepFormComponent } from './Advanced/multi-step-form/multi-step-form.component';
 import { TabsFormComponent } from './Advanced/tabs-form/tabs-form.component';
+import { AgGridIntegrationComponent } from './Advanced/ag-grid-integration/ag-grid-integration.component';
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
   {path: 'defaultValue', component: DefaultValueComponent},
@@ -55,7 +56,7 @@ const routes: Routes = [
   {path: 'repeatingSectionWithLengthInput', component: RepeatingSectionWithLengthInputComponent},
   {path: 'multiStepForm', component: MultiStepFormComponent},
   {path: 'tabForm', component: TabsFormComponent},
-
+  {path: 'agGridIntegration', component: AgGridIntegrationComponent}
 
 
 

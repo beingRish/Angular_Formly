@@ -48,6 +48,11 @@ import { FormlyFieldStepper } from './Advanced/multi-step-form/stepper.type';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabsFormComponent } from './Advanced/tabs-form/tabs-form.component';
 import { FormlyFieldTabs } from './Advanced/tabs-form/tab.type';
+import { AgGridIntegrationComponent } from './Advanced/ag-grid-integration/ag-grid-integration.component';
+import { GridTypeComponent } from './Advanced/ag-grid-integration/grid.type';
+import { GridFormlyCellComponent } from './Advanced/ag-grid-integration/grid-formly-cell.component';
+import { AgGridModule } from 'ag-grid-angular';
+
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -169,7 +174,10 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     MultiStepFormComponent,
     FormlyFieldStepper,
     TabsFormComponent,
-    FormlyFieldTabs
+    FormlyFieldTabs,
+    AgGridIntegrationComponent,
+    GridTypeComponent, 
+    GridFormlyCellComponent
   ],
   imports: [
     BrowserModule,
@@ -177,6 +185,7 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     ReactiveFormsModule,
     FormlyBootstrapModule,
     MaterialModule,
+    AgGridModule,
     FormlyModule.forRoot({
       wrappers: [{ name: 'form-field-horizontal', component: FormlyHorizontalWrapper }],
       validators: [
@@ -210,7 +219,8 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
         { name: 'repeat', component: RepeatTypeComponent },
         { name: 'repeatLengthInput', component: RepeatLengthInputTypeComponent},
         { name: 'stepper', component: FormlyFieldStepper, wrappers: [] },
-        { name: 'tabs', component: FormlyFieldTabs }
+        { name: 'tabs', component: FormlyFieldTabs },
+        { name: 'grid', component: GridTypeComponent, defaultOptions: { props: { width: '100%', height: '400px' } } }
       
       ],
     }),
