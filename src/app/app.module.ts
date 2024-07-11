@@ -42,6 +42,10 @@ import { RepeatingSectionComponent } from './Advanced/repeating-section/repeatin
 import { RepeatTypeComponent } from './Advanced/repeating-section/repeat-section.type';
 import { RepeatLengthInputTypeComponent } from './Advanced/repeating-section-with-length-input/repeat-section.type';
 import { RepeatingSectionWithLengthInputComponent } from './Advanced/repeating-section-with-length-input/repeating-section-with-length-input.component';
+import { MultiStepFormComponent } from './Advanced/multi-step-form/multi-step-form.component';
+import { MaterialModule } from './material.module';
+import { FormlyFieldStepper } from './Advanced/multi-step-form/stepper.type';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -159,13 +163,16 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     RepeatingSectionComponent,
     RepeatTypeComponent,
     RepeatingSectionWithLengthInputComponent,
-    RepeatLengthInputTypeComponent
+    RepeatLengthInputTypeComponent,
+    MultiStepFormComponent,
+    FormlyFieldStepper,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormlyBootstrapModule,
+    MaterialModule,
     FormlyModule.forRoot({
       wrappers: [{ name: 'form-field-horizontal', component: FormlyHorizontalWrapper }],
       validators: [
@@ -197,7 +204,8 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
         { name: 'object', component: ObjectTypeComponent },
         { name: 'multischema', component: MultiSchemaTypeComponent },
         { name: 'repeat', component: RepeatTypeComponent },
-        { name: 'repeatLengthInput', component: RepeatLengthInputTypeComponent}
+        { name: 'repeatLengthInput', component: RepeatLengthInputTypeComponent},
+        { name: 'stepper', component: FormlyFieldStepper, wrappers: [] }
       ],
     }),
     HttpClientModule,
@@ -208,6 +216,7 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
         deps: [HttpClient],
       },
     }),
+    BrowserAnimationsModule,
   ],
   providers: [{ provide: FORMLY_CONFIG, multi: true, useFactory: formlyValidationConfig, deps: [TranslateService] }],
   
