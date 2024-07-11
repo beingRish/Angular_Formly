@@ -38,6 +38,10 @@ import { ArrayTypeComponent } from '../app/Advanced/json-schema/array.type';
 import { ObjectTypeComponent } from '../app/Advanced/json-schema/object.type';
 import { MultiSchemaTypeComponent } from '../app/Advanced/json-schema/multischema.type';
 import { NullTypeComponent } from '../app/Advanced/json-schema/null.type';
+import { RepeatingSectionComponent } from './Advanced/repeating-section/repeating-section.component';
+import { RepeatTypeComponent } from './Advanced/repeating-section/repeat-section.type';
+import { RepeatLengthInputTypeComponent } from './Advanced/repeating-section-with-length-input/repeat-section.type';
+import { RepeatingSectionWithLengthInputComponent } from './Advanced/repeating-section-with-length-input/repeating-section-with-length-input.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -151,7 +155,11 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     ArrayTypeComponent,
     ObjectTypeComponent,
     MultiSchemaTypeComponent,
-    NullTypeComponent
+    NullTypeComponent,
+    RepeatingSectionComponent,
+    RepeatTypeComponent,
+    RepeatingSectionWithLengthInputComponent,
+    RepeatLengthInputTypeComponent
   ],
   imports: [
     BrowserModule,
@@ -181,12 +189,15 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
         { name: 'uniqueItems', message: 'should NOT have duplicate items' },
         { name: 'const', message: constValidationMessage },
         { name: 'enum', message: `must be equal to one of the allowed values` },
+        
       ],
       types: [
         { name: 'null', component: NullTypeComponent, wrappers: ['form-field'] },
         { name: 'array', component: ArrayTypeComponent },
         { name: 'object', component: ObjectTypeComponent },
         { name: 'multischema', component: MultiSchemaTypeComponent },
+        { name: 'repeat', component: RepeatTypeComponent },
+        { name: 'repeatLengthInput', component: RepeatLengthInputTypeComponent}
       ],
     }),
     HttpClientModule,

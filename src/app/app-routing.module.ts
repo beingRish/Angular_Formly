@@ -23,6 +23,8 @@ import { BootstrapHorizontalComponent } from './BootstrapSpecific/bootstrap-hori
 import { InputAddOnsComponent } from './BootstrapSpecific/input-add-ons/input-add-ons.component';
 import { I18nNgxTranslateComponent } from './Advanced/i18n-ngx-translate/i18n-ngx-translate.component';
 import { JsonSchemaComponent } from './Advanced/json-schema/json-schema.component';
+import { RepeatingSectionComponent } from './Advanced/repeating-section/repeating-section.component';
+import { RepeatingSectionWithLengthInputComponent } from './Advanced/repeating-section-with-length-input/repeating-section-with-length-input.component';
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
   {path: 'defaultValue', component: DefaultValueComponent},
@@ -46,8 +48,13 @@ const routes: Routes = [
   {path: 'bootstrapHorizontal', component: BootstrapHorizontalComponent},
   {path: 'inputAddOns', component: InputAddOnsComponent},
   {path: 'i18nNgxTranslate', component: I18nNgxTranslateComponent},
-  {path: 'jsonSchema', component: JsonSchemaComponent}
-  
+  {path: 'jsonSchema', component: JsonSchemaComponent},
+  {path: 'repeatingSection', component: RepeatingSectionComponent},
+  {path: 'repeatingSectionWithLengthInput', component: RepeatingSectionWithLengthInputComponent},
+
+
+
+
 ];
 
 @NgModule({

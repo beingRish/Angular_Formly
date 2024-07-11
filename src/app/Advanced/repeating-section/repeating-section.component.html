@@ -1,0 +1,8 @@
+<h6 class="m-5">
+    This demostrates using <span>formly-form</span> inside of a custom type in order to accomplish repeating fields.
+</h6>
+<form [formGroup]="form" (ngSubmit)="submit()" class="m-5">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    <button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Submit</button>
+  </form>
+  
