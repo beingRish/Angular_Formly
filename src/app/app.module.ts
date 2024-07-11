@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-import { FORMLY_CONFIG, FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
+import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExpressionPropertiesComponent } from './FieldOptions/expression-properties/expression-properties.component';
@@ -28,29 +28,7 @@ import { AdvancedLayoutComponent } from './BootstrapSpecific/advanced-layout/adv
 import { BootstrapHorizontalComponent } from './BootstrapSpecific/bootstrap-horizontal/bootstrap-horizontal.component';
 import { FormlyHorizontalWrapper } from './BootstrapSpecific/horizontal-wrapper/horizontal-wrapper';
 import { InputAddOnsComponent } from './BootstrapSpecific/input-add-ons/input-add-ons.component';
-import { I18nNgxTranslateComponent } from './Advanced/i18n-ngx-translate/i18n-ngx-translate.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { JsonSchemaComponent } from './Advanced/json-schema/json-schema.component';
 
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
-}
-
-export function formlyValidationConfig(translate: TranslateService) {
-  return {
-    validationMessages: [
-      {
-        name: 'required',
-        message() {
-          return translate.stream('FORM.VALIDATION.REQUIRED');
-        },
-      },
-    ],
-  };
-}
 
 export function IpValidator(control: AbstractControl): any {
   return !control.value || /(\d{1,3}\.){3}\d{1,3}/.test(control.value) ? null : { ip: true };
@@ -120,8 +98,6 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     BootstrapHorizontalComponent,
     FormlyHorizontalWrapper,
     InputAddOnsComponent,
-    I18nNgxTranslateComponent,
-    JsonSchemaComponent,
   ],
   imports: [
     BrowserModule,
@@ -143,20 +119,10 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
         {name: 'min', message: minValidationMessage },
         {name: 'max', message: maxValidationMessage },
 
-      ],
-    }),
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
+      ]
     }),
   ],
-  providers: [{ provide: FORMLY_CONFIG, multi: true, useFactory: formlyValidationConfig, deps: [TranslateService] }],
-  
-  
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
