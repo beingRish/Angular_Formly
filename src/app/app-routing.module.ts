@@ -26,6 +26,7 @@ import { JsonSchemaComponent } from './Advanced/json-schema/json-schema.componen
 import { RepeatingSectionComponent } from './Advanced/repeating-section/repeating-section.component';
 import { RepeatingSectionWithLengthInputComponent } from './Advanced/repeating-section-with-length-input/repeating-section-with-length-input.component';
 import { MultiStepFormComponent } from './Advanced/multi-step-form/multi-step-form.component';
+import { TabsFormComponent } from './Advanced/tabs-form/tabs-form.component';
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
   {path: 'defaultValue', component: DefaultValueComponent},
@@ -53,6 +54,8 @@ const routes: Routes = [
   {path: 'repeatingSection', component: RepeatingSectionComponent},
   {path: 'repeatingSectionWithLengthInput', component: RepeatingSectionWithLengthInputComponent},
   {path: 'multiStepForm', component: MultiStepFormComponent},
+  {path: 'tabForm', component: TabsFormComponent},
+
 
 
 

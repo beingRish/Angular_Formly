@@ -46,6 +46,8 @@ import { MultiStepFormComponent } from './Advanced/multi-step-form/multi-step-fo
 import { MaterialModule } from './material.module';
 import { FormlyFieldStepper } from './Advanced/multi-step-form/stepper.type';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TabsFormComponent } from './Advanced/tabs-form/tabs-form.component';
+import { FormlyFieldTabs } from './Advanced/tabs-form/tab.type';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -166,6 +168,8 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     RepeatLengthInputTypeComponent,
     MultiStepFormComponent,
     FormlyFieldStepper,
+    TabsFormComponent,
+    FormlyFieldTabs
   ],
   imports: [
     BrowserModule,
@@ -205,7 +209,9 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
         { name: 'multischema', component: MultiSchemaTypeComponent },
         { name: 'repeat', component: RepeatTypeComponent },
         { name: 'repeatLengthInput', component: RepeatLengthInputTypeComponent},
-        { name: 'stepper', component: FormlyFieldStepper, wrappers: [] }
+        { name: 'stepper', component: FormlyFieldStepper, wrappers: [] },
+        { name: 'tabs', component: FormlyFieldTabs }
+      
       ],
     }),
     HttpClientModule,
