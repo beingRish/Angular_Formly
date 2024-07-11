@@ -34,6 +34,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { JsonSchemaComponent } from './Advanced/json-schema/json-schema.component';
 
+import { ArrayTypeComponent } from '../app/Advanced/json-schema/array.type';
+import { ObjectTypeComponent } from '../app/Advanced/json-schema/object.type';
+import { MultiSchemaTypeComponent } from '../app/Advanced/json-schema/multischema.type';
+import { NullTypeComponent } from '../app/Advanced/json-schema/null.type';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
@@ -93,7 +98,28 @@ export function maxValidationMessage(error: any, field: FormlyFieldConfig){
 export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
   return `"${field.formControl?.value}" is not a valid IP Address`;
 }
+export function typeValidationMessage({ schemaType }: any) {
+  return `should be "${schemaType[0]}".`;
+}
+export function multipleOfValidationMessage(error: any, field: FormlyFieldConfig) {
+  return `should be multiple of ${field.props?.step}`;
+}
+export function exclusiveMinimumValidationMessage(error: any, field: FormlyFieldConfig) {
+  return `should be > ${field.props?.step}`;
+}
+export function exclusiveMaximumValidationMessage(error: any, field: FormlyFieldConfig) {
+  return `should be < ${field.props?.step}`;
+}
+export function constValidationMessage(error: any, field: FormlyFieldConfig) {
+  return `should be equal to constant "${field.props?.['const']}"`;
+}
+export function minItemsValidationMessage(error: any, field: FormlyFieldConfig) {
+  return `should NOT have fewer than ${field.props?.['minItems']} items`;
+}
 
+export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) {
+  return `should NOT have more than ${field.props?.['maxItems']} items`;
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -122,6 +148,10 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
     InputAddOnsComponent,
     I18nNgxTranslateComponent,
     JsonSchemaComponent,
+    ArrayTypeComponent,
+    ObjectTypeComponent,
+    MultiSchemaTypeComponent,
+    NullTypeComponent
   ],
   imports: [
     BrowserModule,
@@ -136,13 +166,27 @@ export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
         { name: 'fieldMatch', validation: fieldMatchValidator }
       ],
       validationMessages: [
-        {name: 'ip', message: IpValidatorMessage },
         {name: 'required',message: 'This field is required' },
+        { name: 'type', message: typeValidationMessage },
+        {name: 'ip', message: IpValidatorMessage },
         {name: 'minLength', message: minLengthValidationMessage },
         {name: 'maxLength', message: maxLengthValidationMessage },
         {name: 'min', message: minValidationMessage },
         {name: 'max', message: maxValidationMessage },
-
+        { name: 'multipleOf', message: multipleOfValidationMessage },
+        { name: 'exclusiveMinimum', message: exclusiveMinimumValidationMessage },
+        { name: 'exclusiveMaximum', message: exclusiveMaximumValidationMessage },
+        { name: 'minItems', message: minItemsValidationMessage },
+        { name: 'maxItems', message: maxItemsValidationMessage },
+        { name: 'uniqueItems', message: 'should NOT have duplicate items' },
+        { name: 'const', message: constValidationMessage },
+        { name: 'enum', message: `must be equal to one of the allowed values` },
+      ],
+      types: [
+        { name: 'null', component: NullTypeComponent, wrappers: ['form-field'] },
+        { name: 'array', component: ArrayTypeComponent },
+        { name: 'object', component: ObjectTypeComponent },
+        { name: 'multischema', component: MultiSchemaTypeComponent },
       ],
     }),
     HttpClientModule,
