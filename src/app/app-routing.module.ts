@@ -29,6 +29,7 @@ import { MultiStepFormComponent } from './Advanced/multi-step-form/multi-step-fo
 import { TabsFormComponent } from './Advanced/tabs-form/tabs-form.component';
 import { AgGridIntegrationComponent } from './Advanced/ag-grid-integration/ag-grid-integration.component';
 import { ExtendingFieldTypesComponent } from './Advanced/extending-field-types/extending-field-types.component';
+import { CascadedSelectUsingObservableComponent } from './Other/cascaded-select-using-observable/cascaded-select-using-observable.component';
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
   {path: 'defaultValue', component: DefaultValueComponent},
@@ -58,7 +59,8 @@ const routes: Routes = [
   {path: 'multiStepForm', component: MultiStepFormComponent},
   {path: 'tabForm', component: TabsFormComponent},
   {path: 'agGridIntegration', component: AgGridIntegrationComponent},
-  {path: 'extendingFieldTypes', component: ExtendingFieldTypesComponent}
+  {path: 'extendingFieldTypes', component: ExtendingFieldTypesComponent},
+  {path: 'cascadedSelectUsingObservable', component: CascadedSelectUsingObservableComponent}
 
 
 

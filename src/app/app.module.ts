@@ -53,6 +53,7 @@ import { GridTypeComponent } from './Advanced/ag-grid-integration/grid.type';
 import { GridFormlyCellComponent } from './Advanced/ag-grid-integration/grid-formly-cell.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ExtendingFieldTypesComponent } from './Advanced/extending-field-types/extending-field-types.component';
+import { CascadedSelectUsingObservableComponent } from './Other/cascaded-select-using-observable/cascaded-select-using-observable.component';
 
 
 // AoT requires an exported function for factories
@@ -180,6 +181,7 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     GridTypeComponent, 
     GridFormlyCellComponent,
     ExtendingFieldTypesComponent,
+    CascadedSelectUsingObservableComponent,
   ],
   imports: [
     BrowserModule,
