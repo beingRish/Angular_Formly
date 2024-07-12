@@ -52,6 +52,7 @@ import { AgGridIntegrationComponent } from './Advanced/ag-grid-integration/ag-gr
 import { GridTypeComponent } from './Advanced/ag-grid-integration/grid.type';
 import { GridFormlyCellComponent } from './Advanced/ag-grid-integration/grid-formly-cell.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { ExtendingFieldTypesComponent } from './Advanced/extending-field-types/extending-field-types.component';
 
 
 // AoT requires an exported function for factories
@@ -177,12 +178,14 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     FormlyFieldTabs,
     AgGridIntegrationComponent,
     GridTypeComponent, 
-    GridFormlyCellComponent
+    GridFormlyCellComponent,
+    ExtendingFieldTypesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormlyBootstrapModule,
     FormlyBootstrapModule,
     MaterialModule,
     AgGridModule,
@@ -220,8 +223,8 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
         { name: 'repeatLengthInput', component: RepeatLengthInputTypeComponent},
         { name: 'stepper', component: FormlyFieldStepper, wrappers: [] },
         { name: 'tabs', component: FormlyFieldTabs },
-        { name: 'grid', component: GridTypeComponent, defaultOptions: { props: { width: '100%', height: '400px' } } }
-      
+        { name: 'grid', component: GridTypeComponent, defaultOptions: { props: { width: '100%', height: '400px' } } },
+        { name: 'password', extends: 'input', defaultOptions: { props: { type: 'password', label: 'Default Password Field' } } }
       ],
     }),
     HttpClientModule,
