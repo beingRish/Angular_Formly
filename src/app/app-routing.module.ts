@@ -34,6 +34,7 @@ import { CascadedSelectJsonpowereedComponent } from './Other/cascaded-select-jso
 import { BindObservableToSelectComponent } from './Other/bind-observable-to-select/bind-observable-to-select.component';
 import { AdvancedLayoutFlexComponent } from './Other/advanced-layout-flex/advanced-layout-flex.component';
 import { NestedFormsComponent } from './Other/nested-forms/nested-forms.component';
+import { MaterialFieldPrefixSufixComponent } from './Other/material-field-prefix-sufix/material-field-prefix-sufix.component';
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
   {path: 'defaultValue', component: DefaultValueComponent},
@@ -69,6 +70,7 @@ const routes: Routes = [
   {path: 'bindObservableToSelect', component: BindObservableToSelectComponent},
   {path: 'advancedLayoutFlex', component: AdvancedLayoutFlexComponent},
   {path: 'nestedForms', component: NestedFormsComponent},
+  {path: 'materialField', component: MaterialFieldPrefixSufixComponent},
 
 
 

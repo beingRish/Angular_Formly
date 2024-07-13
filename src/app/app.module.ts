@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
@@ -60,6 +60,11 @@ import { DataService } from './Service/data.service';
 import { AdvancedLayoutFlexComponent } from './Other/advanced-layout-flex/advanced-layout-flex.component';
 import { NestedFormsComponent } from './Other/nested-forms/nested-forms.component';
 import { PanelWrapperComponent } from './Other/nested-forms/panel-wrapper.component';
+import { MaterialFieldPrefixSufixComponent } from './Other/material-field-prefix-sufix/material-field-prefix-sufix.component';
+import { FormlyWrapperAddons } from './Other/material-field-prefix-sufix/addons.wrapper';
+import { addonsExtension } from './Other/material-field-prefix-sufix/addons.extension';
+import { FormlyMaterialModule } from '@ngx-formly/material';
+import { MatIconModule } from '@angular/material/icon';
 
 
 // AoT requires an exported function for factories
@@ -192,9 +197,11 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     BindObservableToSelectComponent,
     AdvancedLayoutFlexComponent,
     NestedFormsComponent,
-    PanelWrapperComponent
+    PanelWrapperComponent,
+    MaterialFieldPrefixSufixComponent,
 
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -202,11 +209,17 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     FormlyBootstrapModule,
     FormlyBootstrapModule,
     MaterialModule,
+    MatIconModule,
+    FormlyMaterialModule,
     AgGridModule,
     FormlyModule.forRoot({
       wrappers: [
         { name: 'form-field-horizontal', component: FormlyHorizontalWrapper },
-        { name: 'panel', component: PanelWrapperComponent }
+        { name: 'panel', component: PanelWrapperComponent },
+        { name: 'addons', component: FormlyWrapperAddons }
+      ],
+      extensions: [
+        { name: 'addons', extension: {onPopulate: addonsExtension }},
       ],
       validators: [
         { name: 'ip', validation: ipValidator },
@@ -254,11 +267,13 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     }),
     BrowserAnimationsModule,
   ],
+
   providers: [
     DataService,
     { provide: FORMLY_CONFIG, multi: true, useFactory: formlyValidationConfig, deps: [TranslateService] }
   ],
   
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   
   bootstrap: [AppComponent]
 })
