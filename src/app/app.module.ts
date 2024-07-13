@@ -65,7 +65,17 @@ import { FormlyWrapperAddons } from './Other/material-field-prefix-sufix/addons.
 import { addonsExtension } from './Other/material-field-prefix-sufix/addons.extension';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MatIconModule } from '@angular/material/icon';
+import { MaterialFieldHintAlignmentComponent } from './Other/material-field-hint-alignment/material-field-hint-alignment.component';
+import { HideFieldsWithAngularAnimationsComponent } from './Other/hide-fields-with-angular-animations/hide-fields-with-angular-animations.component';
+import { AnimationWrapperComponent } from './Other/hide-fields-with-angular-animations/animation-wrapper.component';
 
+export function animationExtension(field: FormlyFieldConfig) {
+  if (field.wrappers && field.wrappers.includes('animation')) {
+    return;
+  }
+
+  field.wrappers = ['animation', ...(field.wrappers || [])];
+}
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -199,6 +209,8 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     NestedFormsComponent,
     PanelWrapperComponent,
     MaterialFieldPrefixSufixComponent,
+    MaterialFieldHintAlignmentComponent,
+    HideFieldsWithAngularAnimationsComponent
 
   ],
   
@@ -213,13 +225,16 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     FormlyMaterialModule,
     AgGridModule,
     FormlyModule.forRoot({
+      extras: { lazyRender: false },
       wrappers: [
         { name: 'form-field-horizontal', component: FormlyHorizontalWrapper },
         { name: 'panel', component: PanelWrapperComponent },
-        { name: 'addons', component: FormlyWrapperAddons }
+        { name: 'addons', component: FormlyWrapperAddons },
+        { name: 'animation', component: AnimationWrapperComponent }
       ],
       extensions: [
         { name: 'addons', extension: {onPopulate: addonsExtension }},
+        { name: 'animation', extension: { onPopulate: animationExtension } }
       ],
       validators: [
         { name: 'ip', validation: ipValidator },

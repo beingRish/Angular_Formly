@@ -35,6 +35,8 @@ import { BindObservableToSelectComponent } from './Other/bind-observable-to-sele
 import { AdvancedLayoutFlexComponent } from './Other/advanced-layout-flex/advanced-layout-flex.component';
 import { NestedFormsComponent } from './Other/nested-forms/nested-forms.component';
 import { MaterialFieldPrefixSufixComponent } from './Other/material-field-prefix-sufix/material-field-prefix-sufix.component';
+import { MaterialFieldHintAlignmentComponent } from './Other/material-field-hint-alignment/material-field-hint-alignment.component';
+import { HideFieldsWithAngularAnimationsComponent } from './Other/hide-fields-with-angular-animations/hide-fields-with-angular-animations.component';
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
   {path: 'defaultValue', component: DefaultValueComponent},
@@ -70,7 +72,9 @@ const routes: Routes = [
   {path: 'bindObservableToSelect', component: BindObservableToSelectComponent},
   {path: 'advancedLayoutFlex', component: AdvancedLayoutFlexComponent},
   {path: 'nestedForms', component: NestedFormsComponent},
-  {path: 'materialField', component: MaterialFieldPrefixSufixComponent},
+  {path: 'materialFieldPrefixSufix', component: MaterialFieldPrefixSufixComponent},
+  {path: 'materialFieldHintAlignment', component: MaterialFieldHintAlignmentComponent},
+  {path: 'hideFieldWithAngularAnimation', component: HideFieldsWithAngularAnimationsComponent},
 
 
 
