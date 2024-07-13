@@ -30,6 +30,10 @@ import { TabsFormComponent } from './Advanced/tabs-form/tabs-form.component';
 import { AgGridIntegrationComponent } from './Advanced/ag-grid-integration/ag-grid-integration.component';
 import { ExtendingFieldTypesComponent } from './Advanced/extending-field-types/extending-field-types.component';
 import { CascadedSelectUsingObservableComponent } from './Other/cascaded-select-using-observable/cascaded-select-using-observable.component';
+import { CascadedSelectJsonpowereedComponent } from './Other/cascaded-select-jsonpowereed/cascaded-select-jsonpowereed.component';
+import { BindObservableToSelectComponent } from './Other/bind-observable-to-select/bind-observable-to-select.component';
+import { AdvancedLayoutFlexComponent } from './Other/advanced-layout-flex/advanced-layout-flex.component';
+import { NestedFormsComponent } from './Other/nested-forms/nested-forms.component';
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
   {path: 'defaultValue', component: DefaultValueComponent},
@@ -60,7 +64,11 @@ const routes: Routes = [
   {path: 'tabForm', component: TabsFormComponent},
   {path: 'agGridIntegration', component: AgGridIntegrationComponent},
   {path: 'extendingFieldTypes', component: ExtendingFieldTypesComponent},
-  {path: 'cascadedSelectUsingObservable', component: CascadedSelectUsingObservableComponent}
+  {path: 'cascadedSelectUsingObservable', component: CascadedSelectUsingObservableComponent},
+  {path: 'cascadedSelectJSONPowered', component: CascadedSelectJsonpowereedComponent},
+  {path: 'bindObservableToSelect', component: BindObservableToSelectComponent},
+  {path: 'advancedLayoutFlex', component: AdvancedLayoutFlexComponent},
+  {path: 'nestedForms', component: NestedFormsComponent},
 
 
 

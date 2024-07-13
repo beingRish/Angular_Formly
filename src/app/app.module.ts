@@ -54,6 +54,12 @@ import { GridFormlyCellComponent } from './Advanced/ag-grid-integration/grid-for
 import { AgGridModule } from 'ag-grid-angular';
 import { ExtendingFieldTypesComponent } from './Advanced/extending-field-types/extending-field-types.component';
 import { CascadedSelectUsingObservableComponent } from './Other/cascaded-select-using-observable/cascaded-select-using-observable.component';
+import { CascadedSelectJsonpowereedComponent } from './Other/cascaded-select-jsonpowereed/cascaded-select-jsonpowereed.component';
+import { BindObservableToSelectComponent } from './Other/bind-observable-to-select/bind-observable-to-select.component';
+import { DataService } from './Service/data.service';
+import { AdvancedLayoutFlexComponent } from './Other/advanced-layout-flex/advanced-layout-flex.component';
+import { NestedFormsComponent } from './Other/nested-forms/nested-forms.component';
+import { PanelWrapperComponent } from './Other/nested-forms/panel-wrapper.component';
 
 
 // AoT requires an exported function for factories
@@ -182,6 +188,12 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     GridFormlyCellComponent,
     ExtendingFieldTypesComponent,
     CascadedSelectUsingObservableComponent,
+    CascadedSelectJsonpowereedComponent,
+    BindObservableToSelectComponent,
+    AdvancedLayoutFlexComponent,
+    NestedFormsComponent,
+    PanelWrapperComponent
+
   ],
   imports: [
     BrowserModule,
@@ -192,7 +204,10 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     MaterialModule,
     AgGridModule,
     FormlyModule.forRoot({
-      wrappers: [{ name: 'form-field-horizontal', component: FormlyHorizontalWrapper }],
+      wrappers: [
+        { name: 'form-field-horizontal', component: FormlyHorizontalWrapper },
+        { name: 'panel', component: PanelWrapperComponent }
+      ],
       validators: [
         { name: 'ip', validation: ipValidator },
         { name: 'date-future', validation: dateFutureValidator, options: { days: 2 } },
@@ -239,7 +254,10 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     }),
     BrowserAnimationsModule,
   ],
-  providers: [{ provide: FORMLY_CONFIG, multi: true, useFactory: formlyValidationConfig, deps: [TranslateService] }],
+  providers: [
+    DataService,
+    { provide: FORMLY_CONFIG, multi: true, useFactory: formlyValidationConfig, deps: [TranslateService] }
+  ],
   
   
   bootstrap: [AppComponent]

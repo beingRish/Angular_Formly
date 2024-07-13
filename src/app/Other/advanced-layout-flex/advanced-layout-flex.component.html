@@ -1,0 +1,9 @@
+<h6></h6><h2 class="m-5">
+    This is an example of using <span>formGroups</span> and the <span>className</span> property to have an advanced layout.
+</h2>
+
+<form [formGroup]="form" class="m-5">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    <button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Submit</button>
+
+</form>
