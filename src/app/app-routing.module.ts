@@ -37,6 +37,7 @@ import { NestedFormsComponent } from './Other/nested-forms/nested-forms.componen
 import { MaterialFieldPrefixSufixComponent } from './Other/material-field-prefix-sufix/material-field-prefix-sufix.component';
 import { MaterialFieldHintAlignmentComponent } from './Other/material-field-hint-alignment/material-field-hint-alignment.component';
 import { HideFieldsWithAngularAnimationsComponent } from './Other/hide-fields-with-angular-animations/hide-fields-with-angular-animations.component';
+import { ButtonComponent } from './Other/button/button.component';
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
   {path: 'defaultValue', component: DefaultValueComponent},
@@ -75,6 +76,7 @@ const routes: Routes = [
   {path: 'materialFieldPrefixSufix', component: MaterialFieldPrefixSufixComponent},
   {path: 'materialFieldHintAlignment', component: MaterialFieldHintAlignmentComponent},
   {path: 'hideFieldWithAngularAnimation', component: HideFieldsWithAngularAnimationsComponent},
+  {path: 'buttonType', component: ButtonComponent},
 
 
 

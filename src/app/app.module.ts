@@ -1,8 +1,8 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-import { FORMLY_CONFIG, FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
+import { FORMLY_CONFIG, FormlyFieldConfig, FormlyFormBuilder, FormlyModule } from '@ngx-formly/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExpressionPropertiesComponent } from './FieldOptions/expression-properties/expression-properties.component';
@@ -68,6 +68,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MaterialFieldHintAlignmentComponent } from './Other/material-field-hint-alignment/material-field-hint-alignment.component';
 import { HideFieldsWithAngularAnimationsComponent } from './Other/hide-fields-with-angular-animations/hide-fields-with-angular-animations.component';
 import { AnimationWrapperComponent } from './Other/hide-fields-with-angular-animations/animation-wrapper.component';
+import { ButtonComponent } from './Other/button/button.component';
+import { FormlyFieldButton } from './Other/button/button-type.component';
+
 
 export function animationExtension(field: FormlyFieldConfig) {
   if (field.wrappers && field.wrappers.includes('animation')) {
@@ -102,7 +105,7 @@ export function dateFutureValidator(
   control: AbstractControl,
   field: FormlyFieldConfig,
   options = {},
-  ): any {
+): any {
   return { 'date-future': { message: `Validator options: ${JSON.stringify(options)}` } }
 }
 
@@ -110,27 +113,27 @@ export function fieldMatchValidator(control: AbstractControl) {
   const { password, passwordConfirm } = control.value;
 
   // avoid displaying the message error when values are empty
-  if(!passwordConfirm || !password) {
+  if (!passwordConfirm || !password) {
     return null;
   }
 
-  if(passwordConfirm === password) {
+  if (passwordConfirm === password) {
     return null;
   }
 
   return { fieldMatch: { message: 'Password Not Matching' } };
 }
 
-export function minLengthValidationMessage(error: any, field: FormlyFieldConfig){
+export function minLengthValidationMessage(error: any, field: FormlyFieldConfig) {
   return `Should have atleast ${field.props?.minLength} characters`;
 }
-export function maxLengthValidationMessage(error: any, field: FormlyFieldConfig){
+export function maxLengthValidationMessage(error: any, field: FormlyFieldConfig) {
   return `This value should be less than ${field.props?.maxLength} characters`;
 }
-export function minValidationMessage(error: any, field: FormlyFieldConfig){
+export function minValidationMessage(error: any, field: FormlyFieldConfig) {
   return `This value should be more than ${field.props?.maxLength} characters`;
 }
-export function maxValidationMessage(error: any, field: FormlyFieldConfig){
+export function maxValidationMessage(error: any, field: FormlyFieldConfig) {
   return `This value should be less than ${field.props?.maxLength} characters`;
 }
 export function IpValidatorMessage(error: any, field: FormlyFieldConfig) {
@@ -199,7 +202,7 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     TabsFormComponent,
     FormlyFieldTabs,
     AgGridIntegrationComponent,
-    GridTypeComponent, 
+    GridTypeComponent,
     GridFormlyCellComponent,
     ExtendingFieldTypesComponent,
     CascadedSelectUsingObservableComponent,
@@ -210,10 +213,12 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     PanelWrapperComponent,
     MaterialFieldPrefixSufixComponent,
     MaterialFieldHintAlignmentComponent,
-    HideFieldsWithAngularAnimationsComponent
+    HideFieldsWithAngularAnimationsComponent,
+    ButtonComponent,
+    FormlyFieldButton
 
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -233,7 +238,7 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
         { name: 'animation', component: AnimationWrapperComponent }
       ],
       extensions: [
-        { name: 'addons', extension: {onPopulate: addonsExtension }},
+        { name: 'addons', extension: { onPopulate: addonsExtension } },
         { name: 'animation', extension: { onPopulate: animationExtension } }
       ],
       validators: [
@@ -242,13 +247,13 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
         { name: 'fieldMatch', validation: fieldMatchValidator }
       ],
       validationMessages: [
-        {name: 'required',message: 'This field is required' },
+        { name: 'required', message: 'This field is required' },
         { name: 'type', message: typeValidationMessage },
-        {name: 'ip', message: IpValidatorMessage },
-        {name: 'minLength', message: minLengthValidationMessage },
-        {name: 'maxLength', message: maxLengthValidationMessage },
-        {name: 'min', message: minValidationMessage },
-        {name: 'max', message: maxValidationMessage },
+        { name: 'ip', message: IpValidatorMessage },
+        { name: 'minLength', message: minLengthValidationMessage },
+        { name: 'maxLength', message: maxLengthValidationMessage },
+        { name: 'min', message: minValidationMessage },
+        { name: 'max', message: maxValidationMessage },
         { name: 'multipleOf', message: multipleOfValidationMessage },
         { name: 'exclusiveMinimum', message: exclusiveMinimumValidationMessage },
         { name: 'exclusiveMaximum', message: exclusiveMaximumValidationMessage },
@@ -257,7 +262,7 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
         { name: 'uniqueItems', message: 'should NOT have duplicate items' },
         { name: 'const', message: constValidationMessage },
         { name: 'enum', message: `must be equal to one of the allowed values` },
-        
+
       ],
       types: [
         { name: 'null', component: NullTypeComponent, wrappers: ['form-field'] },
@@ -265,11 +270,22 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
         { name: 'object', component: ObjectTypeComponent },
         { name: 'multischema', component: MultiSchemaTypeComponent },
         { name: 'repeat', component: RepeatTypeComponent },
-        { name: 'repeatLengthInput', component: RepeatLengthInputTypeComponent},
+        { name: 'repeatLengthInput', component: RepeatLengthInputTypeComponent },
         { name: 'stepper', component: FormlyFieldStepper, wrappers: [] },
         { name: 'tabs', component: FormlyFieldTabs },
         { name: 'grid', component: GridTypeComponent, defaultOptions: { props: { width: '100%', height: '400px' } } },
-        { name: 'password', extends: 'input', defaultOptions: { props: { type: 'password', label: 'Default Password Field' } } }
+        { name: 'password', extends: 'input', defaultOptions: { props: { type: 'password', label: 'Default Password Field' } } },
+        {
+          name: 'button',
+          component: FormlyFieldButton,
+          wrappers: ['form-field'],
+          defaultOptions: {
+            props: {
+              btnType: 'default',
+              type: 'button',
+            },
+          },
+        },
       ],
     }),
     HttpClientModule,
@@ -287,9 +303,9 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     DataService,
     { provide: FORMLY_CONFIG, multi: true, useFactory: formlyValidationConfig, deps: [TranslateService] }
   ],
-  
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
