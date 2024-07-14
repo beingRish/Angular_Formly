@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  selector: 'app-file-type',
+  selector: 'formly-field-file',
   template: `
-    <input type="file"  [formlyAttributes]="field" />
+    <input type="file"   [formlyAttributes]="field" />
   `,
   styles: [
   ]
