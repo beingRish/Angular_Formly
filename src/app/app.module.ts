@@ -2,7 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-import { FORMLY_CONFIG, FormlyFieldConfig, FormlyFormBuilder, FormlyModule } from '@ngx-formly/core';
+import { FORMLY_CONFIG, FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExpressionPropertiesComponent } from './FieldOptions/expression-properties/expression-properties.component';
@@ -70,6 +70,13 @@ import { HideFieldsWithAngularAnimationsComponent } from './Other/hide-fields-wi
 import { AnimationWrapperComponent } from './Other/hide-fields-with-angular-animations/animation-wrapper.component';
 import { ButtonComponent } from './Other/button/button.component';
 import { FormlyFieldButton } from './Other/button/button-type.component';
+import { JsonPoweredComponent } from './Other/json-powered/json-powered.component';
+import { FileInputComponent } from './Other/file-input/file-input.component';
+import { FormlyFieldFile } from './Other/file-input/file-type.component';
+import { FileValueAccessor } from './Other/file-input/file-value-accessor';
+import { PresetsComponent } from './Other/presets/presets.component';
+import { registerSalutationPreset, SALUTATION_OPTIONS } from './Other/presets/salutation.preset';
+import { FormlyPresetModule } from '@ngx-formly/core/preset';
 
 
 export function animationExtension(field: FormlyFieldConfig) {
@@ -215,11 +222,16 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     MaterialFieldHintAlignmentComponent,
     HideFieldsWithAngularAnimationsComponent,
     ButtonComponent,
-    FormlyFieldButton
-
+    FormlyFieldButton,
+    JsonPoweredComponent,
+    FileInputComponent,
+    FormlyFieldFile,
+    FileValueAccessor,
+    PresetsComponent
   ],
 
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -228,6 +240,7 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
     MaterialModule,
     MatIconModule,
     FormlyMaterialModule,
+    FormlyPresetModule,
     AgGridModule,
     FormlyModule.forRoot({
       extras: { lazyRender: false },
@@ -286,7 +299,31 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
             },
           },
         },
+        { name: 'file', component: FormlyFieldFile, wrappers: ['form-field'] },
       ],
+
+      presets: [
+        {
+          name: 'firstName',
+          config: {
+            key: 'firstName',
+            type: 'input',
+            props: {
+              label: 'First Name',
+            },
+          },
+        },
+        {
+          name: 'lastName',
+          config: {
+            key: 'lastName',
+            type: 'input',
+            props: {
+              label: 'Last Name',
+            },
+          },
+        },
+      ]
     }),
     HttpClientModule,
     TranslateModule.forRoot({
@@ -301,7 +338,22 @@ export function maxItemsValidationMessage(error: any, field: FormlyFieldConfig) 
 
   providers: [
     DataService,
-    { provide: FORMLY_CONFIG, multi: true, useFactory: formlyValidationConfig, deps: [TranslateService] }
+    { 
+      provide: FORMLY_CONFIG, 
+      multi: true, 
+      useFactory: formlyValidationConfig,
+      deps: [TranslateService],
+    },
+    {
+      provide: SALUTATION_OPTIONS,
+      useValue: ['Mr.', 'Ms.', 'Dr.', 'Dude'],
+    },
+    {
+      provide: FORMLY_CONFIG,
+      useFactory: registerSalutationPreset,
+      deps: [SALUTATION_OPTIONS],
+      multi: true,
+    },
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

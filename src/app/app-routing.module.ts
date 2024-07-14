@@ -38,6 +38,9 @@ import { MaterialFieldPrefixSufixComponent } from './Other/material-field-prefix
 import { MaterialFieldHintAlignmentComponent } from './Other/material-field-hint-alignment/material-field-hint-alignment.component';
 import { HideFieldsWithAngularAnimationsComponent } from './Other/hide-fields-with-angular-animations/hide-fields-with-angular-animations.component';
 import { ButtonComponent } from './Other/button/button.component';
+import { JsonPoweredComponent } from './Other/json-powered/json-powered.component';
+import { FileInputComponent } from './Other/file-input/file-input.component';
+import { PresetsComponent } from './Other/presets/presets.component';
 const routes: Routes = [
   {path: 'expressionProperties', component: ExpressionPropertiesComponent},
   {path: 'defaultValue', component: DefaultValueComponent},
@@ -77,6 +80,9 @@ const routes: Routes = [
   {path: 'materialFieldHintAlignment', component: MaterialFieldHintAlignmentComponent},
   {path: 'hideFieldWithAngularAnimation', component: HideFieldsWithAngularAnimationsComponent},
   {path: 'buttonType', component: ButtonComponent},
+  {path: 'jsonPowered', component: JsonPoweredComponent},
+  {path: 'fileInput', component: FileInputComponent},
+  {path: 'presets', component: PresetsComponent},
 
 
 
